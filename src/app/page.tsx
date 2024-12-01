@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { Card } from '@/components/ui/card';
 import SearchForm from '@/components/SearchForm';
 import HomeAnimation from '@/components/HomeAnimation';
-import Image from 'next/image';
 
 export default function Home() {
   const [isTyping, setIsTyping] = useState(false);

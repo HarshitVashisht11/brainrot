@@ -1,5 +1,4 @@
 "use client";
-
 import { useEffect, useState } from 'react';
 import { fetchGitHubProfile } from '@/lib/github';
 import { analyzeProfile } from '@/lib/ai';
@@ -8,12 +7,18 @@ import ErrorDisplay from '@/components/ErrorDisplay';
 import ProfileCard from '@/components/ProfileCard';
 import AnalysisCard from '@/components/AnalysisCard';
 import AnalysisAnimation from '@/components/AnalysisAnimation';
+import { usePathname, useRouter } from 'next/navigation';
 
-export default function AnalysisContent({ username }: { username: string }) {
+
+export default function AnalysisContent() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [analysis, setAnalysis] = useState<any>(null);
   const [profile, setProfile] = useState<any>(null);
+  const router = useRouter();
+  const pathname = usePathname(); 
+  const username = pathname.split('/').pop() || '';
+  
   const [brainRotScore, setBrainRotScore] = useState(0);
 
   const analyzeGitHubProfile = async () => {
@@ -22,11 +27,11 @@ export default function AnalysisContent({ username }: { username: string }) {
     try {
       const githubData = await fetchGitHubProfile(username);
       setProfile(githubData.profile);
-      
+     
       const aiAnalysis = await analyzeProfile(githubData);
       setAnalysis(aiAnalysis);
       setBrainRotScore(aiAnalysis.chill_score + Math.floor(1*20));
-    } catch {
+    } catch (err) {
       setError('Failed to analyze profile. Please check the username and try again.');
     } finally {
       setLoading(false);
@@ -47,9 +52,9 @@ export default function AnalysisContent({ username }: { username: string }) {
 
   return (
     <AnalysisAnimation>
-      <ProfileCard 
-        profile={profile} 
-        analysis={analysis} 
+      <ProfileCard
+        profile={profile}
+        analysis={analysis}
         brainRotScore={brainRotScore}
       />
       <AnalysisCard analysis={analysis} />
