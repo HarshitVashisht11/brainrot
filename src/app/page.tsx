@@ -18,7 +18,7 @@ export default function Home() {
     <main className="min-h-screen relative">
       {/* Background image changes when typing */}
       <div className="absolute top-0 left-0 w-full h-full z-0">
-        <Image
+        <img
           src={isTyping ? "/chilguy.gif" : "/brainrot.gif"} // Change background image
           alt="Backround Image"
           className="object-cover w-full h-full opacity-30 transition-all duration-500" // Use smooth transition for background change
