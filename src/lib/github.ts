@@ -1,7 +1,7 @@
 import { Octokit } from "octokit";
 
 const octokit = new Octokit({
-  auth: process.env.GITHUB_TOKEN
+  auth: process.env.NEXT_PUBLIC_GITHUB_TOKEN
 });
 
 export async function fetchGitHubProfile(username: string) {

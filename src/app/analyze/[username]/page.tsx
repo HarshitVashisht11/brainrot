@@ -7,15 +7,13 @@ import ErrorDisplay from '@/components/ErrorDisplay';
 import ProfileCard from '@/components/ProfileCard';
 import AnalysisCard from '@/components/AnalysisCard';
 import AnalysisAnimation from '@/components/AnalysisAnimation';
-import { usePathname, useRouter } from 'next/navigation';
-
+import { usePathname } from 'next/navigation';
 
 export default function AnalysisContent() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [analysis, setAnalysis] = useState<any>(null);
   const [profile, setProfile] = useState<any>(null);
-  const router = useRouter();
   const pathname = usePathname(); 
   const username = pathname.split('/').pop() || '';
   
@@ -51,13 +49,17 @@ export default function AnalysisContent() {
   }
 
   return (
-    <AnalysisAnimation>
-      <ProfileCard
-        profile={profile}
-        analysis={analysis}
-        brainRotScore={brainRotScore}
-      />
-      <AnalysisCard analysis={analysis} />
-    </AnalysisAnimation>
+    <div className="flex justify-center items-center min-h-screen p-6">
+      <div className="w-full">
+        <AnalysisAnimation>
+          <ProfileCard
+            profile={profile}
+            analysis={analysis}
+            brainRotScore={brainRotScore}
+          />
+          <AnalysisCard analysis={analysis} />
+        </AnalysisAnimation>
+      </div>
+    </div>
   );
 }
