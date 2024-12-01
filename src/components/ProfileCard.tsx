@@ -1,10 +1,10 @@
 "use client";
-
 import { Card } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import { Avatar } from '@/components/ui/avatar';
 import { Calendar, GitBranch, Star, Users } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
+import Image from 'next/image';
 
 export default function ProfileCard({ profile, analysis, brainRotScore }: { 
   profile: any; 
@@ -16,7 +16,7 @@ export default function ProfileCard({ profile, analysis, brainRotScore }: {
       {/* Profile Header */}
       <div className="flex items-center gap-4 mb-6">
         <Avatar className="w-16 h-16">
-          <img
+          <Image
             src={profile?.avatar_url || '/placeholder.png'}
             alt="Avatar"
             className="rounded-full"

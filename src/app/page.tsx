@@ -1,11 +1,10 @@
 "use client";
 
 import { useState } from 'react';
-import { Github } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import SearchForm from '@/components/SearchForm';
 import HomeAnimation from '@/components/HomeAnimation';
+import Image from 'next/image';
 
 export default function Home() {
   const [isTyping, setIsTyping] = useState(false);
@@ -19,7 +18,7 @@ export default function Home() {
     <main className="min-h-screen relative">
       {/* Background image changes when typing */}
       <div className="absolute top-0 left-0 w-full h-full z-0">
-        <img
+        <Image
           src={isTyping ? "/chilguy.gif" : "/brainrot.gif"} // Change background image
           alt="Backround Image"
           className="object-cover w-full h-full opacity-30 transition-all duration-500" // Use smooth transition for background change

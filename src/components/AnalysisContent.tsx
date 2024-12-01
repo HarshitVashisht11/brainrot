@@ -26,7 +26,7 @@ export default function AnalysisContent({ username }: { username: string }) {
       const aiAnalysis = await analyzeProfile(githubData);
       setAnalysis(aiAnalysis);
       setBrainRotScore(aiAnalysis.chill_score + Math.floor(1*20));
-    } catch (err) {
+    } catch {
       setError('Failed to analyze profile. Please check the username and try again.');
     } finally {
       setLoading(false);

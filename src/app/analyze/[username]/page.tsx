@@ -1,4 +1,3 @@
-import { Card } from '@/components/ui/card';
 import AnalysisContent from '@/components/AnalysisContent';
 
 export default async function AnalyzePage({ params }: { params: { username: string } }) {
