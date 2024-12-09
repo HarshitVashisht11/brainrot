@@ -30,12 +30,7 @@
         "ms-vscode.vscode-typescript-tslint-plugin",
         "esbenp.prettier-vscode",
         "dbaeumer.vscode-eslint",
-        "GraphQL.vscode-graphql",
-        "bradlc.vscode-tailwindcss",
-        "csstools.postcss",
-        "streetsidesoftware.code-spell-checker",
-        "usernamehw.errorlens",
-        "aaron-bond.better-comments"
+        "bradlc.vscode-tailwindcss"
       ]
     }
   },
@@ -47,5 +42,6 @@
       "type": "bind"
     }
   ],
+  "postStartCommand": "npm run dev",
   "remoteUser": "node"
 }
