@@ -1,0 +1,35 @@
+{
+    "name": "Next.js Development Environment",
+    "image": "mcr.microsoft.com/devcontainers/javascript-node:20",
+    "forwardPorts": [
+      3000
+    ],
+    "customizations": {
+      "vscode": {
+        "settings": {
+          "typescript.enablePromptBuildOnSave": true,
+          "typescript.tsserver.watchOnFileChange": true,
+          "editor.formatOnSave": true,
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "extensions": [
+          "ms-vscode.vscode-typescript-tslint-plugin",
+          "esbenp.prettier-vscode",
+          "dbaeumer.vscode-eslint",
+          "GraphQL.vscode-graphql",
+          "bradlc.vscode-tailwindcss",
+          "csstools.postcss"
+        ]
+      }
+    },
+    "postCreateCommand": "npm install",
+    "features": {
+      "ghcr.io/devcontainers/features/node:1": {
+        "version": "20"
+      }
+    },
+    "mounts": [
+      "source=${localEnv:HOME}/.npm,target=/home/node/.npm,type=bind"
+    ]
+  }
+  
