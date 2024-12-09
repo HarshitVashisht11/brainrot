@@ -39,7 +39,7 @@
       ]
     }
   },
-  "postCreateCommand": "npm install --force && npm run prepare",
+  "postCreateCommand": "npm install --force",
   "mounts": [
     {
       "source": "${localEnv:HOME}/.npm",
@@ -47,6 +47,5 @@
       "type": "bind"
     }
   ],
-  "remoteUser": "node",
-  "postStartCommand": "npx npm-check-updates"
+  "remoteUser": "node"
 }
