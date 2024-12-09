@@ -1,6 +1,15 @@
 {
   "name": "Next.js Development Environment",
-  "image": "mcr.microsoft.com/devcontainers/javascript-node:20",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:20-bullseye",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "20"
+    },
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "installZsh": true,
+      "configureZshAsDefaultShell": true
+    }
+  },
   "forwardPorts": [3000],
   "customizations": {
     "vscode": {
@@ -8,7 +17,14 @@
         "typescript.enablePromptBuildOnSave": true,
         "typescript.tsserver.watchOnFileChange": true,
         "editor.formatOnSave": true,
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.codeActionsOnSave": {
+          "source.fixAll.eslint": "explicit"
+        },
+        "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
+        "tailwindCSS.experimental.classRegex": [
+          ["clsx\\(([^)]*)\\)", "(?:'|\")([^\"']*?)(?:'|\")"]
+        ]
       },
       "extensions": [
         "ms-vscode.vscode-typescript-tslint-plugin",
@@ -16,21 +32,22 @@
         "dbaeumer.vscode-eslint",
         "GraphQL.vscode-graphql",
         "bradlc.vscode-tailwindcss",
-        "csstools.postcss"
+        "csstools.postcss",
+        "streetsidesoftware.code-spell-checker",
+        "usernamehw.errorlens",
+        "aaron-bond.better-comments"
       ]
     }
   },
-  "postCreateCommand": "npm install",
-  "features": {
-    "ghcr.io/devcontainers/features/node:1": {
-      "version": "20"
-    }
-  },
+  "postCreateCommand": "npm ci && npm run prepare",
   "mounts": [
     {
       "source": "${localEnv:HOME}/.npm",
       "target": "/home/node/.npm",
       "type": "bind"
     }
-  ]
+  ],
+  "remoteUser": "node",
+  "updateContentCommand": "npm install",
+  "postStartCommand": "npx npm-check-updates"
 }
