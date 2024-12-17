@@ -34,13 +34,6 @@
     }
   },
   "postCreateCommand": "npm install --force",
-  "mounts": [
-    {
-      "source": "${localEnv:HOME}/.npm",
-      "target": "/home/node/.npm",
-      "type": "bind"
-    }
-  ],
   "postStartCommand": "npm run dev",
   "remoteUser": "node"
 }
