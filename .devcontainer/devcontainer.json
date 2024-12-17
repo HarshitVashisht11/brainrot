@@ -11,14 +11,6 @@
     }
   },
   "forwardPorts": [3000],
-  "customizations": {
-      "extensions": [
-        "esbenp.prettier-vscode",
-        "dbaeumer.vscode-eslint",
-        "bradlc.vscode-tailwindcss"
-      ]
-    }
-  },
   "postCreateCommand": "npm install --force",
   "postStartCommand": "npm run dev",
   "remoteUser": "node"
