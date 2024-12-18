@@ -30,3 +30,7 @@ Built using Next.js, Tailwind CSS, and ShadCN, leveraging the power of MetaLLama
    NEXT_PUBLIC_AWS_REGION=""
    NEXT_PUBLIC_AWS_SECRET=""
    ```
+5. **Start the development Server**:
+   ```bash
+   npm run dev
+   ```
