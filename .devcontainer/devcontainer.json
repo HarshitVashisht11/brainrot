@@ -1,14 +1,17 @@
 {
-  "name": "Next.js Development Environment",
-  "image": "mcr.microsoft.com/devcontainers/javascript-node:20",
+  "name": "Brainrot Development Environment",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node",
+  "remoteUser": "node",
   "forwardPorts": [
     3000
   ],
   "customizations": {
     "vscode": {
       "settings": {
-        "typescript.enablePromptBuildOnSave": true,
-        "typescript.tsserver.watchOnFileChange": true
+        "javascript.enable": true,
+        "typescript.enable": true,
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave.source.organizeImports": true
       }
     }
   },
