@@ -1,0 +1,16 @@
+{
+  "name": "Next.js Development Environment",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:20",
+  "forwardPorts": [
+    3000
+  ],
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "typescript.enablePromptBuildOnSave": true,
+        "typescript.tsserver.watchOnFileChange": true
+      }
+    }
+  },
+  "postCreateCommand": "npm install --force"
+}
